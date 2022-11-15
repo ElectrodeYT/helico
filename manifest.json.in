@@ -1,0 +1,15 @@
+{
+    "name": "helico.alexanderrichards",
+    "description": "Another Reddit Client",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Helico",
+    "hooks": {
+        "helico": {
+            "apparmor": "helico.apparmor",
+            "desktop":  "helico.desktop"
+        }
+    },
+    "version": "@BUILD_VERSION@",
+    "maintainer": "Alexander Richards <electrodeyt@gmail.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}

@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>LoginPage.qml</file>
+        <file>MainPostsPage.qml</file>
+        <file>RedditPost.qml</file>
+        <file>OpenedRedditPost.qml</file>
+        <file>RedditPostLook.qml</file>
+        <file>SubredditSearchPage.qml</file>
+        <file>SubredditSearchEntry.qml</file>
+        <file>SubredditSearchEntryLook.qml</file>
+        <file>NormalCommentLook.qml</file>
+        <file>MoreCommentLook.qml</file>
+        <file>SearchPostsPage.qml</file>
+        <file>ImageViewPage.qml</file>
+        <file>AboutPage.qml</file>
+        <file>VoteLook.qml</file>
+        <file>FlairBox.qml</file>
+        <file>MoreCommentsPage.qml</file>
+    </qresource>
+</RCC>
