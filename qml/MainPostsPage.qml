@@ -214,7 +214,7 @@ Page {
     Connections {
         target: Reddit
         onPostsRequest: {
-            if(id == postsRequestID) {
+            if(id === postsRequestID) {
                 print("got our post request")
                 var redditPostComponent = Qt.createComponent("RedditPost.qml");
                 if(redditPostComponent.status !== Component.Ready) {
@@ -238,63 +238,53 @@ Page {
         }
     }
 
-    QtQuick.Frame {
-        id: postsFrame
+    ListView {
         anchors.fill: parent
         anchors.topMargin: header.height
-        //height: root.height - header.height
 
-        ScrollView {
-            anchors.fill: parent
-            id: scrollView
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
 
-            //flickableItem.contentWidth: parent.availableWidth
-            //flickableItem.bottomMargin: 0;
-            flickableItem.onAtYEndChanged:   {
-                if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
-                    postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, sortingTimeString, listingAfter)
-                    fetchingPosts = true
-                }
+        id: redditPostParent
+        spacing: units.gu(1)
+
+        Layout.maximumWidth: width
+
+        maximumFlickVelocity: units.gu(500)
+
+        onContentYChanged:   {
+            //if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
+            if(contentY === contentHeight - height && !fetchingPosts && listingAfter !== "") {
+                postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, sortingTimeString, listingAfter)
+                fetchingPosts = true
             }
+        }
 
-            ListView {
-                width: postsFrame.availableWidth
+        onWidthChanged: {
+            print("postscontainer width: " + width)
+        }
 
-                //width: root.width - units.gu(2)
-                //anchors.verticalCenter: parent.verticalCenter
-                id: redditPostParent
-                spacing: units.gu(1)
+        model: ListModel {
+            id: postsModel
+            dynamicRoles: true
+        }
 
-                Layout.maximumWidth: width
+        clip: true
 
-                maximumFlickVelocity: units.gu(500)
-
-                onWidthChanged: {
-                    print("postscontainer width: " + width)
-                }
-
-                model: ListModel {
-                    id: postsModel
-                    dynamicRoles: true
-                }
-
-                clip: true
-
-                Component {
-                    id: redditPostDelegate
-                    RedditPost {
-                        width: ListView.view.width
-                        postChild: _postChild
-                    }
-                }
-
-                delegate: redditPostDelegate
-
-                PullToRefresh {
-                    refreshing: fetchingPosts
-                    onRefresh: refetchPosts();
-                }
+        Component {
+            id: redditPostDelegate
+            RedditPost {
+                width: ListView.view.width
+                postChild: _postChild
+                inView: true
             }
+        }
+
+        delegate: redditPostDelegate
+
+        PullToRefresh {
+            refreshing: fetchingPosts
+            onRefresh: refetchPosts();
         }
     }
 

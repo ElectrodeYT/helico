@@ -12,8 +12,16 @@ MainView {
     applicationName: 'helico.alexanderrichards'
     automaticOrientation: true
 
-    //width: units.gu(45)
-    //height: units.gu(75)
+    theme.name: {
+        if (settings.theme == 1) {
+            return "Lomiri.Components.Themes.Ambiance";
+        } else if (settings.theme == 2) {
+            return "Lomiri.Components.Themes.SuruDark";
+        } else {
+            return "";
+        }
+    }
+
 
     function connectToReddit() {
         if(settings.hasLoggedIn && settings.savedRefreshToken == "") {
@@ -107,6 +115,7 @@ MainView {
         id: settings
         property bool hasLoggedIn: false
         property string savedRefreshToken: ""
+        property int theme: 0
     }
 
     PageStack {
