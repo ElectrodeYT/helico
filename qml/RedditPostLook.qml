@@ -92,7 +92,8 @@ ColumnLayout {
             Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
             Label {
-                text: postChild.subreddit_name_prefixed + " | u/" + postChild.author + "\n" + postChild.time_ago_string
+                text: postChild.subreddit_name_prefixed + " | u/" + postChild.author + "\n" + postChild.time_ago_string + " | " +
+                      postChild.num_comments + (postChild.num_comments === 1 ? i18n.tr(" comment") : i18n.tr(" comments"))
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                 textSize: Label.Small
                 Layout.fillWidth: true

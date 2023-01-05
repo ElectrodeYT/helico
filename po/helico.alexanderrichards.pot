@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: helico.alexanderrichards\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-25 18:21+0000\n"
+"POT-Creation-Date: 2023-01-05 23:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,8 +59,16 @@ msgstr ""
 msgid "more comments..."
 msgstr ""
 
-#: ../qml/OpenedRedditPost.qml:136
+#: ../qml/OpenedRedditPost.qml:139
 msgid "comments:"
+msgstr ""
+
+#: ../qml/RedditPostLook.qml:96
+msgid " comment"
+msgstr ""
+
+#: ../qml/RedditPostLook.qml:96
+msgid " comments"
 msgstr ""
 
 #: helico.desktop.in.h:1
