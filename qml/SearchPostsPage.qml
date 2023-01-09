@@ -7,7 +7,7 @@ import Lomiri.Components.Popups 1.3 as Popups
 import Reddit 1.0
 
 Page {
-    id: mainPostsPage
+    id: searchPostsPage
 
     property string subreddit : ""
     property string sortingString : "/best"
@@ -138,28 +138,27 @@ Page {
         }
     }
 
-    QtQuick.Frame {
-        id: postsFrame
+
+    ScrollView {
         anchors.fill: parent
         anchors.topMargin: header.height
-        height: root.height - header.height
-        ScrollView {
-            anchors.fill: parent
-            id: scrollView
 
-            flickableItem.onAtYEndChanged:   {
-                if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
-                    postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, listingAfter)
-                    fetchingPosts = true
-                }
-            }
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
 
-            ColumnLayout {
-                width: postsFrame.availableWidth
-                //width: root.width
-                id: redditPostParent
-                spacing: units.gu(1)
+        id: scrollView
+
+        flickableItem.onAtYEndChanged:   {
+            if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
+                postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, listingAfter)
+                fetchingPosts = true
             }
+        }
+
+        ColumnLayout {
+            width: searchPostsPage.width - units.gu(2)
+            id: redditPostParent
+            spacing: units.gu(1)
         }
     }
 

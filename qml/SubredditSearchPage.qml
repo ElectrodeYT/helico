@@ -6,6 +6,8 @@ import Lomiri.Components 1.3
 import Reddit 1.0
 
 Page {
+    id: subredditSearchPage
+
     property bool fetchingSubreddits: false
     property int requestID: 0
 
@@ -61,19 +63,19 @@ Page {
         }
     }
 
-    QtQuick.Frame {
-        id: postsFrame
+    ScrollView {
         anchors.fill: parent
         anchors.topMargin: header.height
-        ScrollView {
-            anchors.fill: parent
-            id: scrollView
 
-            ColumnLayout {
-                width: postsFrame.availableWidth
-                id: subredditSearchParent
-                spacing: units.gu(1)
-            }
+        anchors.leftMargin: units.gu(1)
+        anchors.rightMargin: units.gu(1)
+
+        id: scrollView
+
+        ColumnLayout {
+            width: subredditSearchPage.width - units.gu(2)
+            id: subredditSearchParent
+            spacing: units.gu(1)
         }
     }
 
