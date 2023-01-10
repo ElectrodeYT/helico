@@ -253,7 +253,6 @@ Page {
         maximumFlickVelocity: units.gu(500)
 
         onContentYChanged:   {
-            //if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
             if(contentY === contentHeight - height && !fetchingPosts && listingAfter !== "") {
                 postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, sortingTimeString, listingAfter)
                 fetchingPosts = true

@@ -10,26 +10,17 @@ import Reddit 1.0
 
 ColumnLayout {
     id: postTopItem
-
-    //Layout.alignment: Qt.AlignLeft
-
     Layout.fillWidth: true
 
     property var postChild
-    property bool inView: ((scrollView.flickableItem.contentY + scrollView.height) > (y - units.gu(24))) && (scrollView.flickableItem.contentY < (y + height + units.gu(24)))
 
+    // TODO: fix this
+    property bool inView: ((scrollView.flickableItem.contentY + scrollView.height) > (y - units.gu(24))) && (scrollView.flickableItem.contentY < (y + height + units.gu(24)))
     property bool _autoPlayVideo: ((scrollView.flickableItem.contentY + scrollView.height) > (y + units.gu(4))) && (scrollView.flickableItem.contentY < (y + height - units.gu(4)))
 
     onWidthChanged: {
         print("reddit post \"" + postChild.title + "\" width: " + width)
     }
-    /*
-    QtQuick.ToolSeparator {
-        orientation: Qt.Horizontal
-        Layout.fillWidth: true
-        z: -999
-    }
-    */
 
     Item {
         Layout.preferredHeight: units.gu(1)
@@ -46,11 +37,6 @@ ColumnLayout {
         MouseArea {
             width: parent.width
             height: parent.height
-            //anchors.fill: parent
-
-            // This is to make it so that the vote buttons are clickable
-            //anchors.bottomMargin: units.gu(2)
-
             onClicked: openPost()
             z: 2000
         }

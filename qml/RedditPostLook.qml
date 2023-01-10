@@ -112,7 +112,6 @@ ColumnLayout {
 
             // Normal Flair
             Item {
-                //width: normalFlair.enabled ? normalFlair.width : 0
                 Layout.preferredHeight: normalFlair.enabled ? normalFlair.height : 0
 
                 Layout.fillWidth: true
@@ -132,8 +131,6 @@ ColumnLayout {
                 }
 
                 MouseArea {
-    //                width: parent.width
-    //                height: parent.height
                     anchors.fill: normalFlair
                     enabled: enableFlairMouseArea && postChild.link_flair_text !== ""
 
@@ -168,7 +165,6 @@ ColumnLayout {
     Item {
         Layout.fillWidth: true
         Layout.maximumWidth: redditImageWidth * 2
-        //Layout.preferredHeight: postImage.paintedHeight
         Layout.preferredHeight: (redditImageHeight / redditImageWidth) * width
         Layout.alignment: Qt.AlignTop | Qt.AlignVCenter
 
@@ -222,6 +218,10 @@ ColumnLayout {
     }
 
     // If this is a video post, then we add a video player here
+    // TODO: Qt doesn't seem to have a suitable video player that is easy to use
+    //       at least without changing a lot of our arch
+    //       to be fair, we could improve a lot anyways,
+    //       but still
   /*
     Item {
         Layout.fillWidth: true
