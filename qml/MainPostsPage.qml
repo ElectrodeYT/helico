@@ -216,17 +216,6 @@ Page {
         onPostsRequest: {
             if(id === postsRequestID) {
                 print("got our post request")
-                var redditPostComponent = Qt.createComponent("RedditPost.qml");
-                if(redditPostComponent.status !== Component.Ready) {
-                    print("Error loading reddit post component: " + redditPostComponent.errorString())
-                    return;
-                }
-                /*
-                for(let i = 0; i < postListing.children.length; i++) {
-                    var redditPostObject = redditPostComponent.createObject(redditPostParent, { "postChild": postListing.children[i] })
-                }
-                */
-
                 for(let i = 0; i < postListing.children.length; i++) {
                     postsModel.append({"_postChild": postListing.children[i]})
                 }

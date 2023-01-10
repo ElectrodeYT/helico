@@ -12,6 +12,7 @@ Page {
     property int requestID: 0
 
     header: PageHeader {
+        id: header
         contents: Item {
             anchors.fill: parent
             TextField {
@@ -21,11 +22,7 @@ Page {
                 anchors.bottomMargin: units.gu(1)
                 anchors.rightMargin: units.gu(1)
 
-                onAccepted: {
-                    fetchingSubreddits = true
-                    cleanSearches()
-                    requestID = Reddit.getSubreddits(searchBar.text)
-                }
+                onAccepted: fetchSubreddits()
             }
         }
     }
@@ -48,22 +45,15 @@ Page {
         onSubredditRequest: {
             if(id == requestID) {
                 print("got subreddit request")
-                var subredditSearchEntryComponent = Qt.createComponent("SubredditSearchEntry.qml");
-                if(subredditSearchEntryComponent.status !== Component.Ready) {
-                    console.log("Error loading component: ", subredditSearchEntryComponent.errorString());
-                    return;
-                }
                 for(let i = 0; i < subreddits.length; i++) {
-                    var subredditSearchEntryObject = subredditSearchEntryComponent.createObject(subredditSearchParent, {
-                                                                       "subreddit": subreddits[i]
-                                                                   } );
+                    subredditsModel.append({"_subreddit": subreddits[i]});
                 }
                 fetchingSubreddits = false
             }
         }
     }
 
-    ScrollView {
+    ListView {
         anchors.fill: parent
         anchors.topMargin: header.height
 
@@ -71,17 +61,44 @@ Page {
         anchors.rightMargin: units.gu(1)
 
         id: scrollView
+        spacing: units.gu(1)
 
-        ColumnLayout {
-            width: subredditSearchPage.width - units.gu(2)
-            id: subredditSearchParent
-            spacing: units.gu(1)
+        Layout.maximumWidth: width
+
+        maximumFlickVelocity: units.gu(500)
+
+        model: ListModel {
+            id: subredditsModel
+            dynamicRoles: true
+        }
+
+        clip: true
+
+        Component {
+            id: subredditDelegate
+            SubredditSearchEntry {
+                width: ListView.view.width
+                subreddit: _subreddit
+            }
+        }
+
+        delegate: subredditDelegate
+
+        PullToRefresh {
+            refreshing: fetchingSubreddits
+            onRefresh: fetchSubreddits();
         }
     }
 
     function cleanSearches() {
-        for(let i = subredditSearchParent.children.length; i > 0; i--) {
-            subredditSearchParent.children[i - 1].destroy()
+        for(let i = subredditsModel.count; i >= 0; i--) {
+            subredditsModel.remove(i)
         }
+    }
+
+    function fetchSubreddits() {
+        cleanSearches()
+        fetchingSubreddits = true
+        requestID = Reddit.getSubreddits(searchBar.text)
     }
 }

@@ -104,8 +104,8 @@ Page {
     }
 
     function cleanPosts() {
-        for(let i = redditPostParent.children.length; i > 0; i--) {
-            redditPostParent.children[i - 1].destroy()
+        for(let i = postsModel.count; i >= 0; i--) {
+            postsModel.remove(i)
         }
     }
 
@@ -120,17 +120,12 @@ Page {
     Connections {
         target: Reddit
         onPostsRequest: {
-            if(id == postsRequestID) {
+            if(id === postsRequestID) {
                 print("got our post request")
-                var redditPostComponent = Qt.createComponent("RedditPost.qml");
-                if(redditPostComponent.status !== Component.Ready) {
-                    print("Error loading reddit pot component: " + redditPostComponent.errorString())
-                    return;
+                for(let i = 0; i < postListing.children.length; i++) {
+                    searchPostsModel.append({"_postChild": postListing.children[i]})
                 }
 
-                for(let i = 0; i < postListing.children.length; i++) {
-                    var redditPostObject = redditPostComponent.createObject(redditPostParent, { "postChild": postListing.children[i] })
-                }
                 listingAfter = postListing.after
                 fetchingPosts = false
                 postsRequestID = 0
@@ -139,26 +134,52 @@ Page {
     }
 
 
-    ScrollView {
+    ListView {
         anchors.fill: parent
         anchors.topMargin: header.height
 
         anchors.leftMargin: units.gu(1)
         anchors.rightMargin: units.gu(1)
 
-        id: scrollView
+        id: redditPostParent
+        spacing: units.gu(1)
 
-        flickableItem.onAtYEndChanged:   {
-            if(flickableItem.atYEnd && !fetchingPosts && listingAfter !== "") {
-                postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, listingAfter)
+        Layout.maximumWidth: width
+
+        maximumFlickVelocity: units.gu(500)
+
+        onContentYChanged:   {
+            if(contentY === contentHeight - height && !fetchingPosts && listingAfter !== "") {
+                postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, sortingTimeString, listingAfter)
                 fetchingPosts = true
             }
         }
 
-        ColumnLayout {
-            width: searchPostsPage.width - units.gu(2)
-            id: redditPostParent
-            spacing: units.gu(1)
+        onWidthChanged: {
+            print("postscontainer width: " + width)
+        }
+
+        model: ListModel {
+            id: searchPostsModel
+            dynamicRoles: true
+        }
+
+        clip: true
+
+        Component {
+            id: redditPostDelegate
+            RedditPost {
+                width: ListView.view.width
+                postChild: _postChild
+                inView: true
+            }
+        }
+
+        delegate: redditPostDelegate
+
+        PullToRefresh {
+            refreshing: fetchingPosts
+            onRefresh: refetchPosts();
         }
     }
 
