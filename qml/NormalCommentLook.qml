@@ -7,16 +7,15 @@ import Qt.labs.settings 1.0
 import Reddit 1.0
 
 RowLayout {
-    property var _commentChild
-    property int _commentDepth: 0
+    property var commentChild: _commentChild
+    property int commentDepth: _commentDepth
 
     property var colorArray: [ "darkgreen", "darkblue", "darkred" ]
 
     Layout.fillWidth: true
 
-
     Repeater {
-        model: _commentDepth
+        model: commentDepth
         delegate: Rectangle {
             Layout.fillHeight: true
             width: units.gu(0.3)
@@ -31,12 +30,12 @@ RowLayout {
         RowLayout {
             Layout.fillWidth: true
             Label {
-                text: "u/" + _commentChild.author
+                text: "u/" + commentChild.author
                 textSize: Label.Small
             }
 
             Label {
-                text: _commentChild.author_flair_text
+                text: commentChild.author_flair_text
                 textSize: Label.Small
                 Layout.fillWidth: true
                 maximumLineCount: 1
@@ -45,7 +44,7 @@ RowLayout {
             }
         }
         Label {
-            text: _commentChild.body_html
+            text: commentChild.body_html
             wrapMode: Label.WrapAtWordBoundaryOrAnywhere
             Layout.fillWidth: true
 
@@ -57,10 +56,10 @@ RowLayout {
             Layout.preferredHeight: units.gu(0.2)
         }
         VoteLook {
-            score: _commentChild.score
-            fullname: _commentChild.name
-            hasBeenUpvoted: _commentChild.upvoted
-            hasBeenDownvoted: _commentChild.downvoted
+            score: commentChild.score
+            fullname: commentChild.name
+            hasBeenUpvoted: commentChild.upvoted
+            hasBeenDownvoted: commentChild.downvoted
         }
         Item {
             Layout.preferredHeight: units.gu(0.2)

@@ -58,8 +58,8 @@ Page {
         if(comment.isMore && comment.count === 0) { return; }
 
         commentModel.append({
-                                "commentChild": comment,
-                                "commentDepth": depth
+                                "_commentChild": comment,
+                                "_commentDepth": depth
                             }
                                 )
         // print("appended")
@@ -167,29 +167,10 @@ Page {
 
                 Component {
                     id: commentDelegate
-                    Item {
-                        id: commentWrapper
-                        property var commentLook
-
-                        height: commentLook.height
-                        width: ListView.view.width
-                        // property bool inView: ((ListView.view.contentY + ListView.view.height) > (y - units.gu(24))) && (ListView.view.contentY < (y + height + units.gu(24)))
-
-                        /*onInViewChanged: {
-                            if(commentChild.isMore) {
-                                print("moreComment: " + inView)
-                            } else {
-                                print(commentChild.author + ": " + inView)
-                            }
-                        }*/
-
-                        Component.onCompleted: {
-                            if(commentChild.isMore) {
-                                commentLook = redditCommentParent.moreCommentLookComponent.createObject(commentWrapper, {_commentChild: commentChild, _commentDepth: commentDepth, width: commentWrapper.width, linkID: postChild.name})
-                            } else {
-                                commentLook = redditCommentParent.normalCommentLookComponent.createObject(commentWrapper, {_commentChild: commentChild, _commentDepth: commentDepth, width: commentWrapper.width})
-                            }
-                        }
+                    required property var _commentChild
+                    required property int _commentDepth
+                    Loader {
+                        source: if(_commentChild.isMore) { return "MoreCommentLook.qml" } else { return "NormalCommentLook.qml" }
                     }
                 }
 

@@ -7,14 +7,14 @@ import Qt.labs.settings 1.0
 import Reddit 1.0
 
 RowLayout {
-    property var _commentChild
-    property int _commentDepth: 0
+    property var commentChild: _commentChild
+    property int commentDepth: _commentDepth
 
     property var colorArray: [ "darkgreen", "darkblue", "darkred" ]
 
     property bool currentlyFetchingMoreComments: false
 
-    property bool requiresContinueThread: _commentChild.children.length === 0 || _commentChild.count === 0
+    property bool requiresContinueThread: commentChild.children.length === 0 || commentChild.count === 0
 
     // The Reddit Link ID
     // Always the fullname of the RedditPost
@@ -27,7 +27,7 @@ RowLayout {
 
 
     Repeater {
-        model: _commentDepth
+        model: commentDepth
         delegate: Rectangle {
             Layout.fillHeight: true
             width: units.gu(0.3)
@@ -43,7 +43,7 @@ RowLayout {
         }
 
         Label {
-            text: requiresContinueThread ? "Continue this thread" : _commentChild.count + " " + i18n.tr("more comments...");
+            text: requiresContinueThread ? "Continue this thread" : commentChild.count + " " + i18n.tr("more comments...");
             textSize: Label.Small
             Layout.fillWidth: true
 
@@ -71,7 +71,7 @@ RowLayout {
             return;
         }
         var moreCommentPageObject = moreCommentPageComponent.createObject(null, {
-                                                           "topCommentChild": _commentChild,
+                                                           "topCommentChild": commentChild,
                                                            "linkID": linkID
                                                        } );
         pageStack.push(moreCommentPageObject);
