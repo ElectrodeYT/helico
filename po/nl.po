@@ -57,11 +57,11 @@ msgstr "Kies een sorteermethode"
 
 #: ../qml/MoreCommentLook.qml:46
 msgid "more comments..."
-msgstr "Meer reacties…"
+msgstr "meer reacties…"
 
 #: ../qml/OpenedRedditPost.qml:139
 msgid "comments:"
-msgstr "Reacties:"
+msgstr "reacties:"
 
 #: ../qml/RedditPostLook.qml:96
 msgid " comment"
