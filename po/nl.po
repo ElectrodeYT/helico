@@ -1,0 +1,76 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the helico.alexanderrichards package.
+#
+# Heimen Stoffels <vistausss@fastmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: helico.alexanderrichards\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10 21:51+0100\n"
+"PO-Revision-Date: 2023-02-22 20:26+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.2\n"
+
+#: ../qml/AboutPage.qml:41
+msgid "<h1>Helico For Reddit</h1><br>Version %1"
+msgstr "<h1>Helico voor Reddit</h1><br>Versie %1"
+
+#: ../qml/MainPostsPage.qml:32 ../qml/SearchPostsPage.qml:27
+msgid "Front Page"
+msgstr "Voorpagina"
+
+#: ../qml/MainPostsPage.qml:37
+msgid "Search Subreddits..."
+msgstr "Subreddits doorzoeken…"
+
+#: ../qml/MainPostsPage.qml:44
+msgid "Search Posts..."
+msgstr "Berichten doorzoeken…"
+
+#: ../qml/MainPostsPage.qml:58 ../qml/MainPostsPage.qml:92
+#: ../qml/MainPostsPage.qml:147 ../qml/SearchPostsPage.qml:31
+#: ../qml/SearchPostsPage.qml:65
+msgid "Sort by..."
+msgstr "Sorteren op…"
+
+#: ../qml/MainPostsPage.qml:64
+msgid "About"
+msgstr "Over"
+
+#: ../qml/MainPostsPage.qml:70
+msgid "Login"
+msgstr "Inloggen"
+
+#: ../qml/MainPostsPage.qml:70
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: ../qml/MainPostsPage.qml:93 ../qml/SearchPostsPage.qml:66
+msgid "Select sorting method"
+msgstr "Kies een sorteermethode"
+
+#: ../qml/MoreCommentLook.qml:46
+msgid "more comments..."
+msgstr "Meer reacties…"
+
+#: ../qml/OpenedRedditPost.qml:139
+msgid "comments:"
+msgstr "Reacties:"
+
+#: ../qml/RedditPostLook.qml:96
+msgid " comment"
+msgstr " reactie"
+
+#: ../qml/RedditPostLook.qml:96
+msgid " comments"
+msgstr " reacties"
+
+#: helico.desktop.in.h:1
+msgid "Helico"
+msgstr "Helico"
