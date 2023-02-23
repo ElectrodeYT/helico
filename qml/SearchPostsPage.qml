@@ -66,35 +66,35 @@ Page {
             text: i18n.tr("Select sorting method");
 
             Button {
-                text: "Best"
+                text: i18n.tr("Best")
                 onClicked: {
                     sortingString = "best"
                     Popups.PopupUtils.close(dialog)
                 }
             }
             Button {
-                text: "Hot"
+                text: i18n.tr("Hot")
                 onClicked: {
                     sortingString = "hot"
                     Popups.PopupUtils.close(dialog)
                 }
             }
             Button {
-                text: "Top"
+                text: i18n.tr("Top")
                 onClicked: {
                     sortingString = "top"
                     Popups.PopupUtils.close(dialog)
                 }
             }
             Button {
-                text: "New"
+                text: i18n.tr("New")
                 onClicked: {
                     sortingString = "new"
                     Popups.PopupUtils.close(dialog)
                 }
             }
             Button {
-                text: "Rising"
+                text: i18n.tr("Rising")
                 onClicked: {
                     sortingString = "rising"
                     PopupUtils.close(dialog)

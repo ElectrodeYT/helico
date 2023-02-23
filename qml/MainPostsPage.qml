@@ -146,7 +146,7 @@ Page {
             id: sortingTimeDialog
             title: i18n.tr("Sort by...");
             Button {
-                text: "Hour"
+                text: i18n.tr("Hour")
                 onClicked: {
                     sortingTimeString = "hour"
                     Popups.PopupUtils.close(sortingTimeDialog)
@@ -154,7 +154,7 @@ Page {
                 }
             }
             Button {
-                text: "Day"
+                text: i18n.tr("Day")
                 onClicked: {
                     sortingTimeString = "day"
                     Popups.PopupUtils.close(sortingTimeDialog)
@@ -162,14 +162,14 @@ Page {
                 }
             }
             Button {
-                text: "Week"
+                text: i18n.tr("Week")
                 onClicked: {
                     sortingTimeString = "week"
                     Popups.PopupUtils.close(sortingTimeDialog)
                 }
             }
             Button {
-                text: "Month"
+                text: i18n.tr("Month")
                 onClicked: {
                     sortingTimeString = "month"
                     Popups.PopupUtils.close(sortingTimeDialog)
@@ -177,7 +177,7 @@ Page {
                 }
             }
             Button {
-                text: "Year"
+                text: i18n.tr("Year")
                 onClicked: {
                     sortingTimeString = "year"
                     Popups.PopupUtils.close(sortingTimeDialog)
@@ -185,7 +185,7 @@ Page {
                 }
             }
             Button {
-                text: "All Time"
+                text: i18n.tr("All Time")
                 onClicked: {
                     sortingTimeString = "all"
                     Popups.PopupUtils.close(sortingTimeDialog)

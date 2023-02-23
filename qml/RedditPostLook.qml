@@ -155,7 +155,7 @@ ColumnLayout {
                 enabled: postChild.stickied
                 visible: enabled
 
-                flairText: "Stickied"
+                flairText: i18n.tr("Stickied")
                 boxBorderColour: "#21be2b"
             }
         }

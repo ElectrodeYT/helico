@@ -43,7 +43,7 @@ RowLayout {
         }
 
         Label {
-            text: requiresContinueThread ? "Continue this thread" : commentChild.count + " " + i18n.tr("more comments...");
+            text: requiresContinueThread ? i18n.tr("Continue this thread") : commentChild.count + " " + i18n.tr("more comments...");
             textSize: Label.Small
             Layout.fillWidth: true
 

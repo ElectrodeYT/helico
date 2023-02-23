@@ -44,10 +44,10 @@ MainView {
         Popups.Dialog {
             id: linkingErrorDialog
             title: "Error"
-            text: "Linking with Reddit failed."
+            text: i18n.tr("Linking with Reddit failed.")
 
             Button {
-                text: "Retry"
+                text: i18n.tr("Retry")
                 onClicked: {
                     connectToReddit()
                     Popups.PopupUtils.close(linkingErrorDialog)
@@ -55,7 +55,7 @@ MainView {
             }
 
             Button {
-                text: "Retry (logout and login as anonymous)"
+                text: i18n.tr("Retry (logout and login as anonymous)")
                 onClicked: {
                     settings.savedRefreshToken = ""
                     settings.hasLoggedIn = ""
