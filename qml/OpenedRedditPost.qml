@@ -40,21 +40,6 @@ Page {
 
     // Add a comment
     function addComment(comment, depth) {
-//        if(comment.isMore) {
-//            if(comment.count === 0) { return; }
-//            moreComp.createObject(redditCommentParent, {
-//                                      "commentChild": comment,
-//                                      "commentDepth": depth
-//                                  })
-//        } else {
-//            comp.createObject(redditCommentParent, {
-//                                  "commentChild": comment,
-//                                  "commentDepth": depth
-//                              })
-//            for(let i = 0; i < comment.replies.length; i++) {
-//                addComment(comment.replies[i], depth + 1, comp, moreComp)
-//            }
-//        }
         if(comment.isMore && comment.count === 0) { return; }
 
         commentModel.append({
