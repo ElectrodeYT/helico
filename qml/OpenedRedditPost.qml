@@ -86,6 +86,8 @@ Page {
 
             width: openedRedditPostPage.width - units.gu(2)
 
+            anchors.verticalCenter: parent.verticalCenter
+
             RedditPostLook {
                 postChild: openedRedditPostPage.postChild
                 displayTextPreview: false
@@ -141,20 +143,10 @@ Page {
 
                 interactive: false
 
-                // Some components used by the comments
-                property var normalCommentLookComponent
-                property var moreCommentLookComponent
-
-                Component.onCompleted: {
-                    normalCommentLookComponent = Qt.createComponent("NormalCommentLook.qml");
-                    moreCommentLookComponent = Qt.createComponent("MoreCommentLook.qml");
-                }
-
                 Component {
                     id: commentDelegate
-                    required property var _commentChild
-                    required property int _commentDepth
                     Loader {
+                        width: redditCommentParent.width
                         source: if(_commentChild.isMore) { return "MoreCommentLook.qml" } else { return "NormalCommentLook.qml" }
                     }
                 }
