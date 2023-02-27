@@ -7,7 +7,7 @@ import Reddit 1.0
 
 Page {
     header: PageHeader {
-        title: "About"
+        title: i18n.tr("About")
     }
 
     Item {
@@ -38,6 +38,8 @@ Page {
             anchors.topMargin: units.gu(2)
 
             text: {
+                // TRANSLATORS: Add your name to the list after version informations like this:
+                // "<br>Version %1<br>name-of-language translations by x,y,z,....
                 var str = i18n.tr("<h1>Helico For Reddit</h1><br>Version %1").arg(Qt.application.version)
                 return str
             }
@@ -63,7 +65,7 @@ Page {
             }
 
             Button {
-                text: "Donate"
+                text: i18n.tr("Donate")
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 onClicked: {
                     print("should open liberapay")

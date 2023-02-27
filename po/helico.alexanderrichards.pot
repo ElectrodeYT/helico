@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: helico.alexanderrichards\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 21:51+0100\n"
+"POT-Creation-Date: 2023-02-23 20:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/AboutPage.qml:41
+#: ../qml/AboutPage.qml:10 ../qml/MainPostsPage.qml:64
+msgid "About"
+msgstr ""
+
+#. TRANSLATORS: Add your name to the list after version informations like this:
+#. "<br>Version %1<br>name-of-language translations by x,y,z,....
+#: ../qml/AboutPage.qml:43
 msgid "<h1>Helico For Reddit</h1><br>Version %1"
+msgstr ""
+
+#: ../qml/AboutPage.qml:68
+msgid "Donate"
+msgstr ""
+
+#: ../qml/Main.qml:47
+msgid "Linking with Reddit failed."
+msgstr ""
+
+#: ../qml/Main.qml:50
+msgid "Retry"
+msgstr ""
+
+#: ../qml/Main.qml:58
+msgid "Retry (logout and login as anonymous)"
 msgstr ""
 
 #: ../qml/MainPostsPage.qml:32 ../qml/SearchPostsPage.qml:27
@@ -39,10 +61,6 @@ msgstr ""
 msgid "Sort by..."
 msgstr ""
 
-#: ../qml/MainPostsPage.qml:64
-msgid "About"
-msgstr ""
-
 #: ../qml/MainPostsPage.qml:70
 msgid "Login"
 msgstr ""
@@ -55,11 +73,39 @@ msgstr ""
 msgid "Select sorting method"
 msgstr ""
 
+#: ../qml/MainPostsPage.qml:149
+msgid "Hour"
+msgstr ""
+
+#: ../qml/MainPostsPage.qml:157
+msgid "Day"
+msgstr ""
+
+#: ../qml/MainPostsPage.qml:165
+msgid "Week"
+msgstr ""
+
+#: ../qml/MainPostsPage.qml:172
+msgid "Month"
+msgstr ""
+
+#: ../qml/MainPostsPage.qml:180
+msgid "Year"
+msgstr ""
+
+#: ../qml/MainPostsPage.qml:188
+msgid "All Time"
+msgstr ""
+
+#: ../qml/MoreCommentLook.qml:46
+msgid "Continue this thread"
+msgstr ""
+
 #: ../qml/MoreCommentLook.qml:46
 msgid "more comments..."
 msgstr ""
 
-#: ../qml/OpenedRedditPost.qml:139
+#: ../qml/OpenedRedditPost.qml:124
 msgid "comments:"
 msgstr ""
 
@@ -69,6 +115,30 @@ msgstr ""
 
 #: ../qml/RedditPostLook.qml:96
 msgid " comments"
+msgstr ""
+
+#: ../qml/RedditPostLook.qml:158
+msgid "Stickied"
+msgstr ""
+
+#: ../qml/SearchPostsPage.qml:69
+msgid "Best"
+msgstr ""
+
+#: ../qml/SearchPostsPage.qml:76
+msgid "Hot"
+msgstr ""
+
+#: ../qml/SearchPostsPage.qml:83
+msgid "Top"
+msgstr ""
+
+#: ../qml/SearchPostsPage.qml:90
+msgid "New"
+msgstr ""
+
+#: ../qml/SearchPostsPage.qml:97
+msgid "Rising"
 msgstr ""
 
 #: helico.desktop.in.h:1
