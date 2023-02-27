@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: helico.alexanderrichards\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-10 21:51+0100\n"
-"PO-Revision-Date: 2023-02-22 20:26+0100\n"
+"POT-Creation-Date: 2023-02-23 20:25+0000\n"
+"PO-Revision-Date: 2023-02-23 21:26+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -15,11 +15,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: ../qml/AboutPage.qml:41
+#: ../qml/AboutPage.qml:10 ../qml/MainPostsPage.qml:64
+msgid "About"
+msgstr "Over"
+
+#. TRANSLATORS: Add your name to the list after version informations like this:
+#. "<br>Version %1<br>name-of-language translations by x,y,z,....
+#: ../qml/AboutPage.qml:43
 msgid "<h1>Helico For Reddit</h1><br>Version %1"
-msgstr "<h1>Helico voor Reddit</h1><br>Versie %1"
+msgstr ""
+"<h1>Helico voor Reddit</h1><br>Versie %1<br>Vertalingen door Vistaus, "
+"MrPortmaster"
+
+#: ../qml/AboutPage.qml:68
+msgid "Donate"
+msgstr "Doneer"
+
+#: ../qml/Main.qml:47
+msgid "Linking with Reddit failed."
+msgstr "Koppelen met Reddit is mislukt."
+
+#: ../qml/Main.qml:50
+msgid "Retry"
+msgstr "Opnieuw proberen"
+
+#: ../qml/Main.qml:58
+msgid "Retry (logout and login as anonymous)"
+msgstr "Opnieuw proberen (uitloggen en inloggen als anoniem)"
 
 #: ../qml/MainPostsPage.qml:32 ../qml/SearchPostsPage.qml:27
 msgid "Front Page"
@@ -39,10 +63,6 @@ msgstr "Berichten doorzoeken…"
 msgid "Sort by..."
 msgstr "Sorteren op…"
 
-#: ../qml/MainPostsPage.qml:64
-msgid "About"
-msgstr "Over"
-
 #: ../qml/MainPostsPage.qml:70
 msgid "Login"
 msgstr "Inloggen"
@@ -55,11 +75,39 @@ msgstr "Uitloggen"
 msgid "Select sorting method"
 msgstr "Kies een sorteermethode"
 
+#: ../qml/MainPostsPage.qml:149
+msgid "Hour"
+msgstr "Stond"
+
+#: ../qml/MainPostsPage.qml:157
+msgid "Day"
+msgstr "Dag"
+
+#: ../qml/MainPostsPage.qml:165
+msgid "Week"
+msgstr "Week"
+
+#: ../qml/MainPostsPage.qml:172
+msgid "Month"
+msgstr "Maand"
+
+#: ../qml/MainPostsPage.qml:180
+msgid "Year"
+msgstr "Jaar"
+
+#: ../qml/MainPostsPage.qml:188
+msgid "All Time"
+msgstr "Altijd"
+
+#: ../qml/MoreCommentLook.qml:46
+msgid "Continue this thread"
+msgstr "Ga door met dit draadje"
+
 #: ../qml/MoreCommentLook.qml:46
 msgid "more comments..."
 msgstr "meer reacties…"
 
-#: ../qml/OpenedRedditPost.qml:139
+#: ../qml/OpenedRedditPost.qml:124
 msgid "comments:"
 msgstr "reacties:"
 
@@ -70,6 +118,30 @@ msgstr " reactie"
 #: ../qml/RedditPostLook.qml:96
 msgid " comments"
 msgstr " reacties"
+
+#: ../qml/RedditPostLook.qml:158
+msgid "Stickied"
+msgstr "Geplakt"
+
+#: ../qml/SearchPostsPage.qml:69
+msgid "Best"
+msgstr "Best"
+
+#: ../qml/SearchPostsPage.qml:76
+msgid "Hot"
+msgstr "Heet"
+
+#: ../qml/SearchPostsPage.qml:83
+msgid "Top"
+msgstr "Hoogst"
+
+#: ../qml/SearchPostsPage.qml:90
+msgid "New"
+msgstr "Nieuw"
+
+#: ../qml/SearchPostsPage.qml:97
+msgid "Rising"
+msgstr "Opkomend"
 
 #: helico.desktop.in.h:1
 msgid "Helico"
