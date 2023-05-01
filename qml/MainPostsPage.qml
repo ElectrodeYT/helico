@@ -241,15 +241,11 @@ Page {
 
         maximumFlickVelocity: units.gu(500)
 
-        onContentYChanged:   {
-            if(contentY === contentHeight - height && !fetchingPosts && listingAfter !== "") {
+        onAtYEndChanged: {
+            if(atYEnd && !fetchingPosts && listingAfter !== "") {
                 postsRequestID = Reddit.getMorePosts(subredditForFetching, sortingString, sortingTimeString, listingAfter)
                 fetchingPosts = true
             }
-        }
-
-        onWidthChanged: {
-            print("postscontainer width: " + width)
         }
 
         model: ListModel {

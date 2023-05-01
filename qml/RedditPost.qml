@@ -15,8 +15,11 @@ ColumnLayout {
     property var postChild
 
     // TODO: fix this
-    property bool inView: ((scrollView.flickableItem.contentY + scrollView.height) > (y - units.gu(24))) && (scrollView.flickableItem.contentY < (y + height + units.gu(24)))
-    property bool _autoPlayVideo: ((scrollView.flickableItem.contentY + scrollView.height) > (y + units.gu(4))) && (scrollView.flickableItem.contentY < (y + height - units.gu(4)))
+    //property bool inView: ((scrollView.flickableItem.contentY + scrollView.height) > (y - units.gu(24))) && (scrollView.flickableItem.contentY < (y + height + units.gu(24)))
+    //property bool _autoPlayVideo: ((scrollView.flickableItem.contentY + scrollView.height) > (y + units.gu(4))) && (scrollView.flickableItem.contentY < (y + height - units.gu(4)))
+
+    property bool inView: true
+    property bool _autoPlayVideo: false
 
     onWidthChanged: {
         print("reddit post \"" + postChild.title + "\" width: " + width)
